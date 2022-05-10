@@ -1,16 +1,15 @@
-import { Link } from "react-router-dom";
 import fetchUrl from "../fetch/fetch";
 import { useState, useEffect } from "react";
+import { Link, useRouteMatch, useParams } from "react-router-dom";
 
-const trendingMovies = "trending/movie/week";
+const options = "/trending/movie/week";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetchUrl(trendingMovies).then((response) => {
+    fetchUrl(options).then((response) => {
       const { results } = response;
-      console.log(results);
       setMovies(results);
     });
   }, []);
@@ -18,7 +17,9 @@ export default function HomePage() {
   return (
     <ul>
       {movies.map((el) => (
-        <li key={el.id}>{el.title}</li>
+        <li key={el.id}>
+          <Link to={`/movies/${el.id}`}>{el.title}</Link>
+        </li>
       ))}
     </ul>
   );
