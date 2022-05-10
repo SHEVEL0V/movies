@@ -1,11 +1,13 @@
 import fetchUrl from "../fetch/fetch";
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const options = "/trending/movie/week";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
+  const { pathname } = useLocation();
+  console.log(pathname);
 
   useEffect(() => {
     fetchUrl(options).then((response) => {
