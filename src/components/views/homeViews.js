@@ -1,13 +1,11 @@
 import fetchUrl from "../fetch/fetch";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const options = "/trending/movie/week";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
-  const { pathname } = useLocation();
-  console.log(pathname);
 
   useEffect(() => {
     fetchUrl(options).then((response) => {
@@ -20,7 +18,7 @@ export default function HomePage() {
     <ul>
       {movies.map((el) => (
         <li key={el.id}>
-          <Link to={`/movies/${el.id}`}>{el.title}</Link>
+          <Link to={`movies/${el.id}`}>{el.title}</Link>
         </li>
       ))}
     </ul>

@@ -1,0 +1,18 @@
+.card{
+    display: flex;
+}
+.cards{
+    flex-direction:row
+}
+.img{
+
+    height: auto;
+   max-width: 300px;
+   margin-right: 20px;
+}
+
+.imgCast{
+    display: block;
+    max-width: 150px;
+    height: auto;
+}

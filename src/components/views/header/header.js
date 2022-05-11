@@ -5,16 +5,14 @@ export default function Header() {
   return (
     <nav className={s.nav}>
       <NavLink
-        className={({ isActive }) => s.link + (isActive ? s.active : "")}
+        className={({ isActive }) => (isActive ? s.active : s.link)}
         to="/"
       >
         Home
       </NavLink>
       <NavLink
-        className={({ isActive }) =>
-          "nav-link" + (isActive ? " activated" : "")
-        }
-        to="/movies/"
+        className={({ isActive }) => (isActive ? s.active : s.link)}
+        to="movies/"
       >
         Movies
       </NavLink>
