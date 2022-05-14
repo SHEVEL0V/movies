@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import s from "./header.module.css";
+import { NavLink } from 'react-router-dom';
+import s from './header.module.css';
 
 export default function Header() {
   return (
@@ -12,7 +12,7 @@ export default function Header() {
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? s.active : s.link)}
-        to="movies/"
+        to="movies"
       >
         Movies
       </NavLink>

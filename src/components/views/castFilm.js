@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import s from "./stile.module.css";
-import fetchUrl from "../../fetch/fetch";
+import { useState, useEffect } from 'react';
+import s from './stile.module.css';
+import fetchUrl from '../fetch/fetch';
 
 export default function Cast({ id, imgPath }) {
   const [cast, setCast] = useState();
@@ -9,12 +9,13 @@ export default function Cast({ id, imgPath }) {
 
   useEffect(() => {
     fetchUrl(path).then(({ cast }) => setCast(cast));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <ul>
       {cast &&
-        cast.map((el) => (
+        cast.map(el => (
           <li key={el.id} className={s.cards}>
             {el.profile_path && (
               <img

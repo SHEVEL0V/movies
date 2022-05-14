@@ -1,21 +1,21 @@
-import { useState, useEffect } from "react";
-import s from "./stile.module.css";
-import fetchUrl from "../../fetch/fetch";
+import { useState, useEffect } from 'react';
+import fetchUrl from '../fetch/fetch';
 
 export default function Reviews({ id }) {
-  const [reviews, setReviews] = useState();
+  const [reviews, setReviews] = useState([]);
 
   const path = `/movie/${id}/reviews`;
 
   useEffect(() => {
     fetchUrl(path).then(({ results }) => setReviews(results));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <ul>
-      {reviews ? (
-        reviews.map((el) => (
-          <li>
+      {reviews.length > 0 ? (
+        reviews.map(el => (
+          <li key={el.id}>
             <h3>{el.author}</h3>
             <p>{el.content}</p>
           </li>

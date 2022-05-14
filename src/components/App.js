@@ -1,20 +1,27 @@
-import { Route, Routes } from "react-router-dom";
-import HomePage from "./views/homeViews";
-import Header from "./views/header/header";
-import MovieDetailsPage from "./views/moviesViews/detailsPage";
-import SerchFilm from "./views/moviesSearch";
-import Container from "./container/container";
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Header from './header/header';
+import Container from './container/container';
+
+const HomePage = lazy(() => import('./views/home'));
+const MovieDetailsPage = lazy(() => import('./views/detailsFilm'));
+const SerchFilm = lazy(() => import('./views/searchFilm'));
 
 export default function App() {
   return (
-    <Container>
+    <Container fallback={<h1>aaa</h1>}>
       <Header />
-      <Routes>
-        <Route path="/" end element={<HomePage />}></Route>
-        <Route path="movies" element={<SerchFilm />}></Route>
-        <Route path="movies/:movieId/*" element={<MovieDetailsPage />}></Route>
-        <Route path="*" end element={<h1>404</h1>}></Route>
-      </Routes>
+      <Suspense>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="movies/" element={<SerchFilm />}></Route>
+          <Route
+            path="movies/:movieId/*"
+            element={<MovieDetailsPage />}
+          ></Route>
+          <Route path="*" element={<h1>404</h1>}></Route>
+        </Routes>
+      </Suspense>
     </Container>
   );
 }
