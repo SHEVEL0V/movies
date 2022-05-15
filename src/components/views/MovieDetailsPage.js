@@ -7,12 +7,14 @@ import {
   Route,
   useNavigate,
 } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
+import Section from '../section/section';
 
 import fetchUrl from '../fetch/fetch';
 import s from './stile.module.css';
 
-const Cast = lazy(() => import('./castFilm'));
-const Reviews = lazy(() => import('./reviewsFilm.js'));
+const Cast = lazy(() => import('./Cast'));
+const Reviews = lazy(() => import('./Reviews.js'));
 
 export default function MovieDetailsPage() {
   const [cardFilm, setCardFilm] = useState({});
@@ -33,7 +35,8 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <button type="button" onClick={() => navigate(-1)}>
+      <button className={s.button} type="button" onClick={() => navigate(-1)}>
+        <FiArrowLeft />
         Go back
       </button>
       <div className={s.card}>
@@ -49,7 +52,7 @@ export default function MovieDetailsPage() {
           </p>
         </div>
       </div>
-      <div>
+      <Section>
         <h2>Additional information</h2>
         <ul>
           <li>
@@ -59,6 +62,8 @@ export default function MovieDetailsPage() {
             <NavLink to="reviews">Reviews </NavLink>
           </li>
         </ul>
+      </Section>
+      <Section>
         <Suspense fallback={<h1>loading...</h1>}>
           <Routes>
             <Route
@@ -68,7 +73,7 @@ export default function MovieDetailsPage() {
             <Route path="reviews" element={<Reviews id={movieId} />}></Route>
           </Routes>
         </Suspense>
-      </div>
+      </Section>
     </>
   );
 }

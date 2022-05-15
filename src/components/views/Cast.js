@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import s from './stile.module.css';
 import fetchUrl from '../fetch/fetch';
 
@@ -30,3 +31,8 @@ export default function Cast({ id, imgPath }) {
     </ul>
   );
 }
+
+Cast.propTypes = {
+  id: PropTypes.number.isRequired,
+  imgPath: PropTypes.string.isRequired,
+};

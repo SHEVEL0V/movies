@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import fetchUrl from '../fetch/fetch';
 
 export default function Reviews({ id }) {
@@ -26,3 +28,7 @@ export default function Reviews({ id }) {
     </ul>
   );
 }
+
+Reviews.propTypes = {
+  id: PropTypes.number.isRequired,
+};
