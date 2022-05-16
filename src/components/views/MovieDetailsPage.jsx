@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import Section from '../section/section';
-
+import Loading from '../loading/loading';
 import fetchUrl from '../fetch/fetch';
 import s from './stile.module.css';
 
@@ -64,7 +64,7 @@ export default function MovieDetailsPage() {
         </ul>
       </Section>
       <Section>
-        <Suspense fallback={<h1>loading...</h1>}>
+        <Suspense fallback={<Loading />}>
           <Routes>
             <Route
               path="cast"
