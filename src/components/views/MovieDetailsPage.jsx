@@ -14,7 +14,7 @@ import fetchUrl from '../fetch/fetch';
 import s from './stile.module.css';
 
 const Cast = lazy(() => import('./Cast'));
-const Reviews = lazy(() => import('./Reviews.js'));
+const Reviews = lazy(() => import('./Reviews'));
 
 export default function MovieDetailsPage() {
   const [cardFilm, setCardFilm] = useState({});

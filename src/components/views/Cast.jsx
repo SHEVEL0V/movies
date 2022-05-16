@@ -33,6 +33,6 @@ export default function Cast({ id, imgPath }) {
 }
 
 Cast.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   imgPath: PropTypes.string.isRequired,
 };
