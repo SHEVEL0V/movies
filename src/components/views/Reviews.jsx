@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import fetchUrl from '../fetch/fetch';
+import fetchUrl from '../../services/fetch';
 
 export default function Reviews({ id }) {
   const [reviews, setReviews] = useState([]);
@@ -30,5 +30,5 @@ export default function Reviews({ id }) {
 }
 
 Reviews.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };

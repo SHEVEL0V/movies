@@ -10,7 +10,7 @@ import {
 import { FiArrowLeft } from 'react-icons/fi';
 import Section from '../section/section';
 import Loading from '../loading/loading';
-import fetchUrl from '../fetch/fetch';
+import fetchUrl from '../../services/fetch';
 import s from './stile.module.css';
 
 const Cast = lazy(() => import('./Cast'));

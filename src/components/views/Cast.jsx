@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import s from './stile.module.css';
-import fetchUrl from '../fetch/fetch';
+import fetchUrl from '../../services/fetch';
 
 export default function Cast({ id, imgPath }) {
   const [cast, setCast] = useState();

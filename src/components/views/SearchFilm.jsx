@@ -1,4 +1,4 @@
-import fetchURL from '../fetch/fetch';
+import fetchURL from '../../services/fetch';
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import s from './stile.module.css';
