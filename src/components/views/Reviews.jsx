@@ -10,9 +10,7 @@ export default function Reviews({ id }) {
 
   useEffect(() => {
     fetchUrl(path).then(({ results }) => setReviews(results));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  }, [path]);
   return (
     <ul>
       {reviews.length > 0 ? (

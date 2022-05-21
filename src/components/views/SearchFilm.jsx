@@ -8,11 +8,10 @@ export default function SerchFilm() {
   const [list, setList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const search = '/search/movie';
   const options = `&language=en-US&query=${
     value || searchParams.get('search')
   }&page=1&include_adult=true`;
-
-  const search = '/search/movie';
 
   useEffect(() => {
     if (value || searchParams.get('search')) {

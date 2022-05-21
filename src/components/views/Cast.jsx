@@ -10,8 +10,7 @@ export default function Cast({ id, imgPath }) {
 
   useEffect(() => {
     fetchUrl(path).then(({ cast }) => setCast(cast));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [path]);
 
   return (
     <ul>

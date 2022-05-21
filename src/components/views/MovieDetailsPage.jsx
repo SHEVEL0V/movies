@@ -28,8 +28,7 @@ export default function MovieDetailsPage() {
     fetchUrl(path).then(response => {
       setCardFilm(response);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [path]);
 
   const { poster_path, title, vote_average, overview, genres } = cardFilm;
 
