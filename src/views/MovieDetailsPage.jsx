@@ -8,9 +8,9 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
-import Section from '../section/section';
-import Loading from '../loading/loading';
-import fetchUrl from '../../services/fetch';
+import Section from '../components/section/section';
+import Loading from '../components/loading/loading';
+import fetchUrl from '../services/fetch';
 import s from './stile.module.css';
 
 const Cast = lazy(() => import('./Cast'));
@@ -65,10 +65,7 @@ export default function MovieDetailsPage() {
       <Section>
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route
-              path="cast"
-              element={<Cast id={movieId} imgPath={imgPath} />}
-            ></Route>
+            <Route path="cast" element={<Cast id={movieId} />}></Route>
             <Route path="reviews" element={<Reviews id={movieId} />}></Route>
           </Routes>
         </Suspense>

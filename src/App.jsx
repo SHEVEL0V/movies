@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Header from './header/header';
-import Container from './container/container';
-import Loading from './loading/loading';
-import Error from './errorEl/error';
+import Header from './components/header/header';
+import Container from './components/container/container';
+import Loading from './components/loading/loading';
+import Error from './components/errorEl/error';
 
 const HomePage = lazy(() => import('./views/HomePage'));
 const MovieDetailsPage = lazy(() => import('./views/MovieDetailsPage'));

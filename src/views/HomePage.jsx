@@ -1,4 +1,4 @@
-import fetchUrl from '../../services/fetch';
+import fetchUrl from '../services/fetch';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 

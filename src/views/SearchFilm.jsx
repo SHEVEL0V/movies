@@ -1,6 +1,7 @@
-import fetchURL from '../../services/fetch';
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+
+import fetchURL from '../services/fetch';
 import s from './stile.module.css';
 
 export default function SerchFilm() {
@@ -14,11 +15,13 @@ export default function SerchFilm() {
   }&page=1&include_adult=true`;
 
   useEffect(() => {
-    if (value || searchParams.get('search')) {
+    if (value) {
       setSearchParams({ search: value });
+    }
+    if (value || searchParams.get('search')) {
       fetchURL(search, options).then(response => setList(response.results));
     }
-  }, [options, search, searchParams, setSearchParams, value]);
+  }, [options, searchParams, setSearchParams, value]);
 
   const onRender = e => {
     e.preventDefault();

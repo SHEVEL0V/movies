@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import fetchUrl from '../../services/fetch';
+import fetchUrl from '../services/fetch';
 
 export default function Reviews({ id }) {
   const [reviews, setReviews] = useState([]);
