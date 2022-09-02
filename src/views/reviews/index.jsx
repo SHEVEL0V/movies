@@ -1,16 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
 
-import fetchUrl from '../services/fetch';
+import { fetchFilmReviews } from '../../services/fetch';
 
 export default function Reviews({ id }) {
-  const [reviews, setReviews] = useState([]);
+  const { data } = useQuery(['fechTrend'], () => fetchFilmReviews(id));
 
-  const path = `/movie/${id}/reviews`;
+  const reviews = data?.results || [];
 
-  useEffect(() => {
-    fetchUrl(path).then(({ results }) => setReviews(results));
-  }, [path]);
   return (
     <ul>
       {reviews.length > 0 ? (
