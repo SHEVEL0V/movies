@@ -1,7 +1,7 @@
 import { fetchFilmTrendWeek } from '../../services/fetch';
 import { useQuery } from '@tanstack/react-query';
 import Card from '../../components/card';
-import Loading from '../../components/loading/loading';
+import Loading from '../../components/loading';
 
 export default function HomePage() {
   const { data, isLoading } = useQuery(['fechTrend'], () =>

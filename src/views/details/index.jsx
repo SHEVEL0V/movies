@@ -8,8 +8,8 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
-import Section from '../../components/section/section';
-import Loading from '../../components/loading/loading';
+import Section from '../../components/section';
+import Loading from '../../components/loading';
 import { fetchFilmById } from '../../services/fetch';
 import Button from '@mui/material/Button';
 import logo from '../../img/images.png';

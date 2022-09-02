@@ -1,5 +1,5 @@
 import BeatLoader from 'react-spinners/BeatLoader';
-import s from './loading.module.css';
+import s from './style.module.css';
 
 export default function Loading() {
   return (

@@ -2,9 +2,9 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Header from './components/header';
-import Container from './components/container/container';
-import Loading from './components/loading/loading';
-import Error from './components/errorEl/error';
+import Container from './components/container';
+import Loading from './components/loading';
+import Error from './components/error';
 
 const queryClient = new QueryClient();
 const HomePage = lazy(() => import('./views/home'));
