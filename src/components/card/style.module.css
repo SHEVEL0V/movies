@@ -3,9 +3,10 @@
   text-decoration: none;
   color: black;
   padding: 10px;
-  margin: 5px;
-  background-color: rgba(185, 185, 166, 0.397);
+  margin: 10px;
+  background-color: rgba(154, 211, 242, 0.197);
   border-radius: 10px;
+  border: solid rgba(0, 0, 255, 0.287);
 }
 
 .container {

@@ -1,7 +1,7 @@
 import { fetchFilmTrendWeek } from '../../services/fetch';
 import { useQuery } from '@tanstack/react-query';
-import BeatLoader from 'react-spinners/BeatLoader';
 import Card from '../../components/card';
+import Loading from '../../components/loading/loading';
 
 export default function HomePage() {
   const { data, isLoading } = useQuery(['fechTrend'], () =>
@@ -12,9 +12,9 @@ export default function HomePage() {
 
   return (
     <ul>
-      {isLoading && <BeatLoader color="#216fca" size={18} />}
+      {isLoading && <Loading />}
       {movies.map(el => (
-        <Card film={el} />
+        <Card film={el} key={el.id} />
       ))}
     </ul>
   );

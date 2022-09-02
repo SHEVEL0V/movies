@@ -1,6 +1,5 @@
 import { lazy, Suspense } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import BeatLoader from 'react-spinners/BeatLoader';
 import {
   useParams,
   NavLink,
@@ -34,54 +33,74 @@ export default function MovieDetailsPage() {
   return (
     <>
       {isLoading ? (
-        <BeatLoader color="#216fca" size={18} />
+        <Loading />
       ) : (
         <div>
           <Button variant="contained" onClick={() => navigate(-1)}>
             <FiArrowLeft />
             Go back
           </Button>
-
-          <div className={s.card}>
-            <img
-              className={s.img}
-              src={poster_path ? imgPath + poster_path : logo}
-              alt="baner "
-            ></img>
-            <div>
-              <h2>{title}</h2>
-              <p>Users score: {vote_average}</p>
-              <h3>Overview</h3>
-              <p>{overview}</p>
-              <h3>Genres</h3>
-              <p>
-                {genres &&
-                  genres.map(el => <span key={el.id}>{el.name} </span>)}
-              </p>
+          <Section>
+            <div className={s.card}>
+              <img
+                className={s.img}
+                src={poster_path ? imgPath + poster_path : logo}
+                alt="baner "
+              ></img>
+              <div>
+                <h2>{title}</h2>
+                <p>Users score: {vote_average}</p>
+                <h3>Overview</h3>
+                <p>{overview}</p>
+                <h3>Genres</h3>
+                <p>
+                  {genres &&
+                    genres.map(el => <span key={el.id}>{el.name} </span>)}
+                </p>
+              </div>
             </div>
-          </div>
+          </Section>
+
+          <Section>
+            <h2 className={s.title}>Additional information</h2>
+            <div className={s.container}>
+              <NavLink
+                className={s.naw}
+                style={({ isActive }) =>
+                  isActive
+                    ? { backgroundColor: 'rgba(30, 45, 123, 0.244)' }
+                    : {}
+                }
+                to="cast"
+              >
+                <Button variant="outlined">Cast</Button>
+              </NavLink>
+              <NavLink
+                className={s.naw}
+                style={({ isActive }) =>
+                  isActive
+                    ? { backgroundColor: 'rgba(30, 45, 123, 0.244)' }
+                    : {}
+                }
+                to="reviews"
+              >
+                <Button variant="outlined">Reviews</Button>
+              </NavLink>
+            </div>
+          </Section>
+          <Section>
+            <Suspense fallback={<Loading />}>
+              <Routes>
+                <Route path="cast" element={<Cast id={movieId} />}></Route>
+                <Route
+                  path="reviews"
+                  element={<Reviews id={movieId} />}
+                ></Route>
+              </Routes>
+            </Suspense>
+          </Section>
         </div>
       )}
-
-      <Section>
-        <h2>Additional information</h2>
-        <ul>
-          <li>
-            <NavLink to="cast">Cast</NavLink>
-          </li>
-          <li>
-            <NavLink to="reviews">Reviews </NavLink>
-          </li>
-        </ul>
-      </Section>
-      <Section>
-        <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route path="cast" element={<Cast id={movieId} />}></Route>
-            <Route path="reviews" element={<Reviews id={movieId} />}></Route>
-          </Routes>
-        </Suspense>
-      </Section>
     </>
   );
 }

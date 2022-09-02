@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
+import s from './style.module.css';
 
 import { fetchFilmReviews } from '../../services/fetch';
 
@@ -9,7 +10,7 @@ export default function Reviews({ id }) {
   const reviews = data?.results || [];
 
   return (
-    <ul>
+    <ul className={s.container}>
       {reviews.length > 0 ? (
         reviews.map(el => (
           <li key={el.id}>
@@ -18,7 +19,7 @@ export default function Reviews({ id }) {
           </li>
         ))
       ) : (
-        <h3>We don't haveany reviews for this movie.</h3>
+        <h3 className={s.title}>We don't haveany reviews for this movie.</h3>
       )}
     </ul>
   );

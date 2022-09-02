@@ -8,7 +8,7 @@ export default function Header() {
       <NavLink
         className={s.buuton}
         style={({ isActive }) =>
-          isActive ? { backgroundColor: 'rgba(248, 33, 33, 0.155)' } : {}
+          isActive ? { backgroundColor: 'rgba(30, 45, 123, 0.244)' } : {}
         }
         to="/"
       >
@@ -18,7 +18,7 @@ export default function Header() {
       <NavLink
         className={s.buuton}
         style={({ isActive }) =>
-          isActive ? { backgroundColor: 'rgba(248, 33, 33, 0.155)' } : {}
+          isActive ? { backgroundColor: 'rgba(30, 45, 123, 0.244)' } : {}
         }
         to="movies"
       >

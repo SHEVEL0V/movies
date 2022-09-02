@@ -12,8 +12,7 @@
 .input {
   box-sizing: border-box;
   width: 400px;
-  height: 40px;
-  border-radius: 5px;
+
   margin-right: 20px;
 }
 
@@ -23,11 +22,6 @@
   height: auto;
 }
 
-.button {
-  height: 40px;
-  margin-bottom: 10px;
-}
-
-.button:active {
-  background-color: aquamarine;
+.form {
+  margin-top: 20px;
 }

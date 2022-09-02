@@ -1,10 +1,10 @@
-import PropagateLoader from 'react-spinners/PropagateLoader';
+import BeatLoader from 'react-spinners/BeatLoader';
 import s from './loading.module.css';
 
 export default function Loading() {
   return (
     <div className={s.loading}>
-      <PropagateLoader color={'#1885D4'} size={18} />
+      <BeatLoader color="#216fca" size={18} />
     </div>
   );
 }

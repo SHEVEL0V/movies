@@ -4,6 +4,7 @@ import s from './style.module.css';
 
 const Card = ({ film }) => {
   const imgPath = 'https://image.tmdb.org/t/p/w500/' + film.backdrop_path;
+
   return (
     <Link className={s.link} to={`movies/${film.id}`}>
       <img
