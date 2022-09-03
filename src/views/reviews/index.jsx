@@ -1,11 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
+import { fetchFilmReviews } from '../../services/fetch';
 import s from './style.module.css';
 
-import { fetchFilmReviews } from '../../services/fetch';
-
-export default function Reviews({ id }) {
-  const { data } = useQuery(['fechTrend'], () => fetchFilmReviews(id));
+export default function Reviews() {
+  const { movieId } = useParams();
+  const { data } = useQuery(['fechTrend', movieId], () =>
+    fetchFilmReviews(movieId)
+  );
 
   const reviews = data?.results || [];
 
